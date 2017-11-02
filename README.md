@@ -90,12 +90,11 @@ DOM, Node对象的一些简单的方法
     var li = document.getElementById('huawei');
     var children = li.childNodes;
     console.log(children);
+    var arr [];
     for (var i=0;i<children.length;i++){
         var child = children[i];
-        if (child.nodeType === 3){
-            if(child.nodeValue == '    '){
-                console.log('这是空白节点');  //这里并不会成功输出，因为这不单纯是换行和空格的问题
-            }
+        if (child.nodeType === 3 && /^\s+$/.test(child.nodeValue)){
+            console.log('这是空白节点') // 判断子节点是不是空白节点
         }
     }
 
